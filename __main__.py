@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pylab as pl
@@ -11,8 +12,7 @@ from v1 import neural_network
 
 def start():
     digits = load_digits()
-    print(digits.images[0])
-    print(digits.target[0])
+    
     images_and_labels=list(zip(digits.images,digits.target))
     plt.figure(figsize=(5,5))
 
@@ -45,7 +45,7 @@ def start():
     y_train=y_train.T
     y_test=y_test.T
 
-    print(y_train[0])
+   
 
     Y_train_ = np.zeros((10,y_train.shape[1]))
     for i in range(y_train.shape[1]):
@@ -56,10 +56,9 @@ def start():
         Y_test_[y_test[0,i],i] = 1
 
     n_x=X_train.shape[0]
-    print(n_x)
     n_h=10
     n_y=Y_train_.shape[0]
-    print(n_y)
+    
 
     m = neural_network(X_train, Y_train_, y_train, y_test, X_test, n_samples)
     m.start(digits, sc, y)
